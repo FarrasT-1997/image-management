@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>File Upload</title>
+</head>
+<body>
+<h1>Upload File Interface</h1>
+<h2>Upload Single File</h2>
+<form action="http://localhost:8080/singleUpload" method="POST" enctype="multipart/form-data">
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    Files: <input type="file" name="file"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<h2>Upload Multiple Files</h2>
+<form action="http://localhost:8080/multipleUpload" method="POST" enctype="multipart/form-data">
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    Multiple Files: <input type="file" name="files" multiple><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<h2>Get Photo From Directory</h2>
+<form action="http://localhost:8080/getPhotoByName" method="GET" enctype="multipart/form-data">
+    Name: <input type="text" name="file_name"><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
