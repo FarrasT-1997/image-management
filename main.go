@@ -44,12 +44,9 @@ func upload(c echo.Context) error {
 func main() {
 	e := echo.New()
 
-	// e.Use(middleware.Logger())
-	// e.Use(middleware.Recover())
 	e.POST("/singleUpload", singleUpload)
 	e.POST("/multipleUpload", multipleUpload)
 	e.GET("/getPhotoByName", GetPhotoByName)
-	// e.File("/Farras Timorremboko.jpg", "temp_images/Farras Timorremboko.jpg")
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
