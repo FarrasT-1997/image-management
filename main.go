@@ -9,38 +9,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func upload(c echo.Context) error {
-	// Read form fields
-	name := c.FormValue("name")
-	email := c.FormValue("email")
-
-	// Read the source
-	file, err := c.FormFile("file")
-	if err != nil {
-		return err
-	}
-	src, err := file.Open()
-	if err != nil {
-		return err
-	}
-	defer src.Close()
-
-	// Make a destination for images
-	filename := fmt.Sprintf("temp_images/%s.jpg", name)
-	dst, err := os.Create(filename)
-	if err != nil {
-		return err
-	}
-	defer dst.Close()
-
-	// Insert images to destination
-	if _, err = io.Copy(dst, src); err != nil {
-		return err
-	}
-
-	return c.HTML(http.StatusOK, fmt.Sprintf("<p>File %s uploaded successfully with fields name=%s and email=%s.</p>", file.Filename, name, email))
-}
-
 func main() {
 	e := echo.New()
 
